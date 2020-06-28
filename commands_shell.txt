@@ -1,0 +1,27 @@
+import datetime
+from django.utils import timezone
+
+from products.models import Category
+from products.models import Brand
+from products.models import Product
+from orders.models import Order
+
+Category.objects.all()
+c = Category(code='100', name='Feminino', option='1', registered_at=timezone.now())
+c.save()
+
+Brand.objects.all()
+b = Brand(name="FATAL", level_price='1', registered_at=timezone.now())
+b.save()
+
+
+p = Product(sku='1', name='Camiseta', brand=1, category=1, size='S', quantity=10, registered_by='eduardo', registered_at=timezone.now(), modified_at=timezone.now(), is_active=True)
+p.save()
+
+Product.objects.all()
+Product.objects.filter(id=1)
+Product.objects.filter(id=1)[0]
+p = Product.objects.filter(id=1)[0]
+o = Order.objects.filter(id=2)[0]
+o.products.all()
+o.setOrderQuantityProduct()
