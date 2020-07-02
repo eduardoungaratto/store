@@ -9,19 +9,26 @@ from orders.models import Order
 Category.objects.all()
 c = Category(code='100', name='Feminino', option='1', registered_at=timezone.now())
 c.save()
+Category.objects.all()
 
 Brand.objects.all()
 b = Brand(name="FATAL", level_price='1', registered_at=timezone.now())
 b.save()
-
-
-p = Product(sku='1', name='Camiseta', brand=1, category=1, size='S', quantity=10, registered_by='eduardo', registered_at=timezone.now(), modified_at=timezone.now(), is_active=True)
-p.save()
+Brand.objects.all()
 
 Product.objects.all()
+p = Product(sku='1', name='Camiseta', brand=Brand.objects.filter(id=1)[0], category=Category.objects.filter(id=1)[0], size='S', quantity=10, unit_price=59.90, registered_by='eduardo', registered_at=timezone.now(), modified_at=timezone.now(), is_active=1)
+p.save()
+Product.objects.all()
+
+
 Product.objects.filter(id=1)
 Product.objects.filter(id=1)[0]
 p = Product.objects.filter(id=1)[0]
+
 o = Order.objects.filter(id=2)[0]
+Order(cpf='01201943094', name='EDUARDO UNGARATTO LIMA', phone='0123456789', products.set.add(Product.objects.filter(id__in=[1])), price=59, registered_at=timezone.now(), registered_by='eduardo')
 o.products.all()
 o.setOrderQuantityProduct()
+p
+o
