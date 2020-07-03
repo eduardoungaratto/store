@@ -27,7 +27,7 @@ Product.objects.filter(id=1)[0]
 p = Product.objects.filter(id=1)[0]
 
 o = Order.objects.filter(id=2)[0]
-Order(cpf='01201943094', name='EDUARDO UNGARATTO LIMA', phone='0123456789', products.set.add(Product.objects.filter(id__in=[1])), price=59, registered_at=timezone.now(), registered_by='eduardo')
+Order(cpf='0000', name='jhon doe', phone='0123456789', products.set.add(Product.objects.filter(id__in=[1])), price=59, registered_at=timezone.now(), registered_by='eduardo')
 o.products.all()
 o.setOrderQuantityProduct()
 p
