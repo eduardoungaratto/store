@@ -26,9 +26,56 @@ Product.objects.filter(id=1)
 Product.objects.filter(id=1)[0]
 p = Product.objects.filter(id=1)[0]
 
-o = Order.objects.filter(id=2)[0]
-Order(cpf='0000', name='jhon doe', phone='0123456789', products.set.add(Product.objects.filter(id__in=[1])), price=59, registered_at=timezone.now(), registered_by='eduardo')
+o = Order.objects.filter(id=1)[0]
+o = Order(cpf='0000', name='jhon doe', phone='0123456789', products_set.add(Product.objects.filter(id__in=[1])), price=59, registered_at=timezone.now(), registered_by='eduardo')
+o.save()
 o.products.all()
 o.setOrderQuantityProduct()
 p
 o
+
+
+
+
+
+
+
+
+
+
+.now(), registered_by='eduardo')
+  File "<console>", line 1
+SyntaxError: positional argument follows keyword argument
+>>> o.products
+<django.db.models.fields.related_descriptors.create_forward_many_to_many_manager.<locals>.ManyRelatedManager object at 0x000001DD24734F40>
+>>> o.products.set
+<bound method create_forward_many_to_many_manager.<locals>.ManyRelatedManager.set of <django.db.models.fields.related_descriptors.create_forward_many_to_many_manager.<locals>.ManyRelatedManager object at 0x000001DD24734B80>>
+>>> o.products.set.add(p)
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'function' object has no attribute 'add'
+>>> o.products.set(p)
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "C:\py\Projects\vst\lib\site-packages\django\db\models\fields\related_descriptors.py", line 992, in set
+    objs = tuple(objs)
+TypeError: 'Product' object is not iterable
+>>> o.products.set(p[0])
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+TypeError: 'Product' object is not subscriptable
+>>> o.products.set(Product.objects.filter(id__in=[1])
+... o.save()
+  File "<console>", line 2
+    o.save()
+    ^
+SyntaxError: invalid syntax
+>>> o.save()
+>>> o
+<Order: Order object (1)>
+>>> o.products
+<django.db.models.fields.related_descriptors.create_forward_many_to_many_manager.<locals>.ManyRelatedManager object at 0x000001DD24734B80>
+>>> o
+<Order: Order object (1)>
+>>> o.save()
+>>>
