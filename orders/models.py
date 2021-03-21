@@ -1,7 +1,7 @@
 import datetime
 from django.db import models
 from django.utils import timezone
-from products.models import Product
+from inventory.models import Product
 
 # Create your models here.
 class Order(models.Model):
@@ -57,7 +57,6 @@ class Order(models.Model):
 			print(qtd)
 		except Exception as e:
 			raise e
-
 
 	def updateQuantityProduct(self):
 		pass
