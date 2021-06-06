@@ -7,6 +7,7 @@ from inventory.models import Product
 class Order(models.Model):
 	cpf = models.CharField(max_length=12)
 	name = models.CharField(max_length=255)
+	email = models.CharField(max_length=255, default='')
 	phone = models.CharField(max_length=255, default='')
 	products = models.ManyToManyField(Product)
 	price = models.DecimalField(max_digits=10, decimal_places=2)

@@ -53,6 +53,7 @@ class Product(models.Model):
 	unit_price = models.DecimalField(max_digits=10, decimal_places=2)	
 	registered_by = models.CharField(max_length=255)
 	registered_at = models.DateTimeField()
+	modified_by = models.CharField(max_length=255)
 	modified_at = models.DateTimeField()
 	is_active = models.BooleanField()
 	
